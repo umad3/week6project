@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css"/>
+    </head>
+    <body>
+        <h1>THE TASKLIST PAGE</h1>
+        <br/>
+        <h3>
+            The available tasks are:
+            <table>
+                <tr><!--tr simply refers to table row, so all the things below all belong to this row-->
+                    <td>ID -</td><!--td is for table columns, so these are in one row but many columns-->
+                    <td>Name - </td>
+                    <td>Assign To - </td>
+                    <td>Due Date - </td>
+                    <td>Status - </td>
+                    <td>Description</td>
+                </tr>
+                <%for(let x = 0; x < taskdb.length; x++){%> <!--This loops through the task table in order to find any tasks from the database that should be displayed here-->
+                <tr>
+                    <td><%= taskdb[x]._id %> </td> <!--All the respective values are pulled from the variables and displayed when the page is rendered-->
+                    <td><%= taskdb[x].name %> </td><!--As you can see, these correspond to the above columns. The values are pulled from the variables in the server.js page and then displayed here-->
+                    <td><%= taskdb[x].assign_To %> </td>
+                    <td><%= taskdb[x].due_Date %></td>
+                    <td><%= taskdb[x].status %> </td>
+                    <td><%= taskdb[x].description %></td>
+                </tr>
+                <%}%>
+            </table>
+        </h3>
+        <br/>
+        <table>
+            <tr>
+                <td><a href="http://localhost:8080/">Home</a></td>
+                <td><a href="http://localhost:8080/newtask">Add-Task</a></td>
+                <td><a href="http://localhost:8080/listtask">List-All-Tasks</a></td>
+                <td><a href="http://localhost:8080/update">Update</a></td>
+                <td><a href="http://localhost:8080/deleteTask">Delete-One</a></td>
+                <td><a href="http://localhost:8080/deleteAll">Delete-All-Tasks</a></td>
+            </tr>
+        </table>
+    </body>
+</html>
